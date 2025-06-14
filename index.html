@@ -3,23 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legba Barber Studio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <title>Nixon the Barber</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      position: relative;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('images/backgroundbarber.jpeg') no-repeat center center/cover;
+      filter: blur(10px);
+      z-index: -1;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #fff;
+      background-color: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      z-index: 1;
+    }
+    nav {
+      background: #000;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .cta-buttons {
+      margin-top: 2rem;
+      z-index: 1;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      background: #1f1b2e;
+      color: #000;
+      font-weight: 400;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+    .cta-buttons a:hover {
+        transform: scale(1.05);
+        background: #2a2342;
+        box-shadow: 0 0 10px #2a2342, 0 0 20px #2a234288;
+      }
+    .gallery {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: #2a2342;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    $1
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 4px #00ffff, 0 0 10px #00ffff55;}
+    footer {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+      @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Book Your Cut</h1>
-    <form id="booking-form">
-      <input type="text" name="name" placeholder="Your Full Name" required />
-      <input type="tel" name="phone" placeholder="Phone Number" required />
-      <input type="datetime-local" name="datetime" required />
-      <textarea name="note" placeholder="Any special request?"></textarea>
-      <button type="submit">Book Now</button>
-    </form>
-    <p id="confirmation" class="hidden">Thank you! Your booking request has been sent.</p>
-  </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
 
-  <script src="app.js"></script>
+  <header style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center;">
+    <h1 style="border: 1px solid #00ffff; padding: 1rem 2rem; border-radius: 10px; backdrop-filter: blur(6px); background-color: rgba(0, 0, 0, 0.6); color: white; font-family: 'Playfair Display', serif; font-size: 3.5rem;">Nixon the Barber</h1>
+    <div class="cta-buttons">
+      <a href="#booking" style="background: #00bfff; color: #000; font-weight: 400; transition: transform 0.3s ease, background 0.3s ease;">Book My Cut</a>
+      <a href="#schedule" style="background: #00bfff; color: #000; font-weight: 400; transition: transform 0.3s ease, background 0.3s ease;">See Schedule</a>
+    </div>
+    <div style="margin-top: 3rem; max-width: 1100px; padding: 3rem; text-align: center; border: 1px solid #00ffff; border-radius: 12px; backdrop-filter: blur(6px); background-color: rgba(0, 0, 0, 0.55);">
+      <p style="color: #fff; font-size: 1.4rem;">
+        When you sit in Nixon’s chair, we don’t just cut your hair — we create confidence. Whether it’s your regular fade, a fresh style for a big event, or a classic shave, we make sure you leave feeling your best. Scroll down to see some of our work and book your next appointment.
+      </p>
+    </div>
+  </header>
+  </header>
+
+  <section class="gallery" id="gallery">
+    
+    <div class="gallery-grid" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: nowrap; overflow-x: hidden; max-width: 100%;">
+      <img src="images/kidscut2.jpg" alt="Kidscut 2" style="width: 300px; height: 400px; object-fit: cover; border: 2px solid #00ffff; box-shadow: 0 0 4px #00ffff44, 0 0 8px #00ffff22; border-radius: 10px;" />
+      <img src="images/kidscut4.jpg" alt="Kidscut 4" style="width: 300px; height: 400px; object-fit: cover; border: 2px solid #00ffff; box-shadow: 0 0 4px #00ffff44, 0 0 8px #00ffff22; border-radius: 10px;" />
+      <img src="images/Kidscut5.jpg" alt="Kidscut 5" style="width: 300px; height: 400px; object-fit: cover; border: 2px solid #00ffff; box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff88; border-radius: 10px;" />
+    </div>
+  
+  </section>
+  <section class="info-section" id="location" style="padding: 2rem; text-align: center; background-color: #1a1a1a;">
+    <h2 class="section-title" style="color: #2a2342; margin-bottom: 1rem;">Visit Us</h2>
+    <p style="color: #ddd; font-size: 1.1rem;">123 Groom Street, Fade City, FL 33101</p>
+    <p style="color: #aaa; font-size: 0.95rem; margin-top: 0.5rem;">📞 (305) 555-6789 &nbsp; | &nbsp; ✉️ book@nixonthebarber.com</p>
+    <p style="margin-top: 1rem;"><a href="https://goo.gl/maps/example" target="_blank" style="color: gold; text-decoration: underline;">Get Directions</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Nixon the Barber. All rights reserved.
+  </footer>
 </body>
 </html>
